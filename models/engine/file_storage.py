@@ -35,7 +35,9 @@ class FileStorage:
             with open(self.__file_path, "r") as f:
                 load_dict = json.load(f)
 
-            for key, value in self.__objects.items():
-                self.__objects[key] = BaseModel(**value)
+            for object in load_dict.values():
+                name = object["__class__"]
+                del object["__class__"]
+                self.new(eval(name)(**object))
         except FileNotFoundError:
             return
