@@ -5,22 +5,23 @@ import cmd
 import os
 
 
-class HBNBCCommand (cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
     """ Console class for AirBnb project"""
+    
+    prompt = "(hbnb)"
 
-    def do_quit(self):
+    def do_quit(self, line):
         """ quit console"""
         return True
 
-    def do_EOF(self):
+    def do_EOF(self, line):
         """Quit console"""
         return True
 
     def emptyline(self):
         """ empty line + ENTER"""
-        pass
+        print()
 
-    prompt = '(hbnb) '
 
 
 if __name__ == '__main__':
