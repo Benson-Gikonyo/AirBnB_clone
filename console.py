@@ -62,8 +62,8 @@ class HBNBCommand(cmd.Cmd):
 
         if len(args) == 0:
             print("** class name missing **")
-        if not isinstance (args[0], BaseModel):
-            print("** class doesn't exist **")
+        # if not isinstance (args[0], BaseModel):
+        #     print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
         elif "f{args[0]}.{args[1]}" not in objects:
@@ -99,8 +99,8 @@ class HBNBCommand(cmd.Cmd):
 
         if len(args) == 0:
             print("** class name missing **")
-        if not isinstance (args[0], BaseModel):
-            print("** class doesn't exist **")
+        # if not isinstance (args[0], BaseModel):
+        #     print("** class doesn't exist **")
         elif len(args) == 1:
             print("** instance id missing **")
 
