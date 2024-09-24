@@ -11,13 +11,12 @@ import models
 class BaseModel:
     """Base model class
     """
-    
 
     def __init__(self, *args, **kwargs):
         """initialize BaseModel class"""
-        
+
         format = "%Y-%m-%dT%H:%M:%S.%f"
-        
+
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
@@ -42,13 +41,13 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
-            """ returns a dictionary containing all keys/values of __dict__
-            of the instance
-            """
-            save_dict = {}
-            save_dict = self.__dict__
-            save_dict["__class__"] = self.__class__.__name__
-            save_dict["created_at"] = self.created_at.isoformat()
-            save_dict["updated_at"] = self.updated_at.isoformat()
+        """ returns a dictionary containing all keys/values of __dict__
+        of the instance
+        """
+        save_dict = {}
+        save_dict = self.__dict__
+        save_dict["__class__"] = self.__class__.__name__
+        save_dict["created_at"] = self.created_at.isoformat()
+        save_dict["updated_at"] = self.updated_at.isoformat()
 
-            return save_dict
+        return save_dict

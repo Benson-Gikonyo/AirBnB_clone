@@ -4,6 +4,11 @@
 import cmd
 from models.base_model import BaseModel
 from models.user import User
+from models.amenity import Amenity
+from models.place import Place
+from models.city import City
+from models.state import State
+from models.review import Review
 from models import storage
 
 
@@ -14,7 +19,12 @@ class HBNBCommand(cmd.Cmd):
 
     __classes = {
         "BaseModel",
-        "user"
+        "user",
+        "Amenity",
+        "State",
+        "Review",
+        "Place",
+        "City"
     }
 
     def do_quit(self, line):
@@ -39,7 +49,6 @@ class HBNBCommand(cmd.Cmd):
         elif args[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
         else:
-            args = BaseModel()
             print(args.id)
             storage.save()
 
@@ -105,12 +114,12 @@ class HBNBCommand(cmd.Cmd):
 
         if len(args) == 0:
             print("** class name missing **")
-        elif args[0] not in HBNBCommand.__classes:
+        if args[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
-        elif len(args) == 1:
+        if len(args) == 1:
             print("** instance id missing **")
 
-        elif "f{args[0]}.{args[1]}" not in objects:
+        if "f{args[0]}.{args[1]}" not in objects:
             print("** no instance found **")
 
         if len(args) == 2:
